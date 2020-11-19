@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+:root {
+  --entry-time: 0.8s;
+  --controls-size: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.terminalContainer {
+  font-family: "Source Code Pro", monospace;
+  color: white;
+  background: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=840&q=80);
+  height: 100vh;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Thankyou message */
+.thankyouMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  font-size: 20px;
+  display: none;
+  animation: thankyou 1.5s linear;
+  -webkit-text-stroke: 1.3px white;
+  -webkit-text-fill-color: transparent;
+}
+
+.terminal {
+  backdrop-filter: blur(3px);
+  font-weight: bolder;
+  z-index: 4;
+  overflow: scroll;
+  height: 65%;
+  width: 65%;
+  animation: entry var(--entry-time) linear;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.terminal::-webkit-scrollbar {
+  height: 0;
+  width: 7px;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+
+.terminalHeading {
+  width: 64.5%;
+  background: #bbb;
+  color: black;
+  padding: 5px;
+  animation: entry var(--entry-time) linear;
+  letter-spacing: 1.5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+}
+
+.terminalHeading h1 {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  text-align: center;
+  width: 80%;
+}
+
+/* control button */
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  height: var(--controls-size);
+  width: var(--controls-size);
+  border-radius: 50%;
+  margin: 4px 4px;
+}
+
+.button:nth-child(1) {
+  position: relative;
+  background-color: rgb(233, 20, 20);
+}
+
+.button:nth-last-child(2) {
+  position: relative;
+  background-color: rgb(231, 231, 26);
+}
+
+.button:last-child {
+  background-color: rgb(14, 177, 14);
+}
+
+.realButtons {
+  font-size: 14px;
+  background-color: transparent;
+  border-width: 0;
+  outline: none;
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.minimizeButtton {
+  top: -7px;
+}
+
+.button:nth-child(1):hover .crossButton {
+  display: block;
+}
+
+.button:nth-child(2):hover .minimizeButtton {
+  display: block;
+}
+
+.terminalLastLogin {
+  font-size: 16px;
+  margin: 5px;
+}
+
+.inputContainer {
+  display: flex;
+  height: 30px;
+}
+
+.angleBracket {
+  font-size: 30px;
+  margin-left: 10px;
+  color: green;
+  font-weight: bolder;
+}
+
+.tilde {
+  font-size: 17px;
+  margin-left: 5px;
+  color: blue;
+  font-weight: bolder;
+  padding-top: 10px;
+  letter-spacing: 3px;
+}
+
+.inputFields {
+  display: flex;
+  margin-left: 5px;
+  width: 100%;
+  padding-top: 13px;
+}
+
+.inputCommand {
+  background-color: transparent;
+  border: none;
+  outline: 0;
+  font-size: 13px;
+  flex: 1;
+  font-family: "Source Code Pro", monospace;
+  font-weight: bolder;
+  color: white;
+}
+
+.commandEntered {
+  display: none;
+}
+
+.outputContainer {
+  display: none;
+}
+
+/* Dynamic elements */
+
+.inputElement {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px;
+  width: 100%;
+}
+
+.topWrapper {
+  display: flex;
+  height: 25px;
+}
+
+.inputValue {
+  font-size: 13px;
+  margin-left: 5px;
+  padding-top: 13px;
+}
+
+.outputWrapper {
+  margin-left: 10px;
+  margin-top: 12px;
+  margin-right: 5px;
+}
+
+.output {
+  word-break: break-all;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Help command */
+#helpContainer {
+  background-color: rgba(59, 219, 126, 0.4);
+  margin: 10px 5px;
+  padding: 5px 0px;
+}
+
+#helpWelcomeMessage {
+  text-align: center;
+  margin: 20px;
+  -webkit-text-stroke: 0.7px white;
+  -webkit-text-fill-color: transparent;
+  font-size: 30px;
+}
+
+#littleAboutCommands {
+  margin: 10px;
+  color: rgb(10, 233, 166);
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+#commandsInformationContainer {
+  margin: 0px;
+}
+
+#indiCmdInfo {
+  display: flex;
+  margin: 15px 5px;
+}
+
+#commandName {
+  font-size: 15px;
+  margin: 0px 5px;
+  width: 50px;
+  font-weight: bolder;
+  color: rgb(217, 224, 248);
+}
+
+#aboutCommand {
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* created by message */
+.createdByMessage {
+  color: white;
+  font-weight: bolder;
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+}
+
+/* Keyframes */
+
+@keyframes entry {
+  0% {
+    transform: translateY(-500px);
+  }
+  60% {
+    transform: translateY(150px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes thankyou {
+  to {
+    opacity: 1;
+  }
+  from {
+    opacity: 0;
+  }
+}
