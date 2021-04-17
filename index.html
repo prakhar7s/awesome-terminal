@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My terminal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="terminalContainer">
+      <div class="thankyouMessage">
+        <h1>Thankyou for using terminal 😄.</h1>
+      </div>
+      <div class="terminalHeading">
+        <div class="controls">
+          <div class="button">
+            <button class="realButtons crossButton">&times;</button>
+          </div>
+          <div class="button">
+            <button class="minimizeButtton realButtons">_</button>
+          </div>
+          <div class="button"></div>
+        </div>
+        <h1>Awesome terminal</h1>
+      </div>
+      <div class="terminal">
+        <div class="terminalMainSection">
+          <h2 class="terminalLastLogin"></h2>
+          <div class="allCommandsContainer"></div>
+          <div class="inputContainer">
+            <span class="angleBracket">&rarr;</span>
+            <span class="tilde">~$</span>
+            <form class="inputFields">
+              <input class="inputCommand" type="text" />
+              <button type="submit" class="commandEntered"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <p class="createdByMessage">
+        Enter help to know more about awesome terminal.
+      </p>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
