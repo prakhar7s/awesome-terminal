@@ -30,7 +30,7 @@ commandEntered.addEventListener("click", (e) => {
   createCommandOutput();
   inputFromUser = "";
 
-  terminalMainSection.scrollTop = terminalMainSection.scrollHeight;
+  terminal.scrollTop = terminal.scrollHeight;
 });
 
 crossButton.addEventListener("click", () => {
@@ -147,22 +147,19 @@ function getHelp() {
 
 // Validation of input
 function validateInput() {
-  if (inputFromUser.startsWith("echo")) {
-    if (inputFromUser == "echo") {
-      return "use proper syntax";
-    } else {
-      return inputFromUser.split('"')[1];
-    }
-  } else if (inputFromUser == "date") {
-    return getTodayDateInString();
-  } else if (inputFromUser === "time") {
-    return getCurrentTimeInString();
-  } else if (inputFromUser === "clear") {
-    clearTheTerminal();
-    return "";
-  } else if (inputFromUser === "help") {
-    return getHelp();
-  } else {
-    return "command not found :)";
+  switch (inputFromUser) {
+    case "date":
+      return getTodayDateInString();
+    case "time":
+      return getCurrentTimeInString();
+    case "clear":
+      return clearTheTerminal();
+    case "help":
+      return getHelp();
+    default:
+      if (inputFromUser.startsWith("echo")) {
+        return inputFromUser.split('"')[-1];
+      }
+      return "Command not found :(";
   }
 }
